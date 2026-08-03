@@ -1,13 +1,15 @@
 # Báo Cáo Nhóm — Lab 7: Embedding & Vector Store
 
-**Nhóm:** K3
+**Nhóm:** sixtuat
+
 **Thành viên:** 
-1. Vũ Hải Nam
-2. Giang Minh Phú
-3. Nguyễn Tiến Thanh
-4. Nguyễn Minh Nhật
-5. Nguyễn Duy Dũng
-6. Ong Xuân Sơn
+- Vũ Hải Nam - 2A202601173
+- Giang Minh Phú - 2A202601729
+- Nguyễn Tiến Thành - 2A202601539
+- Nguyễn Minh Nhật - 2A202601131
+- Nguyễn Duy Dũng - 2A202601505
+- Ong Xuân Sơn - 2A202601327
+
 **Ngày:** 03/08/2026
 
 > **Nộp 1 bản / nhóm.** Phần cá nhân (hướng tiếp cận, kết quả riêng, dự đoán…) mỗi thành viên nộp riêng trong `REPORT_CANHAN.md`. Chi tiết thang điểm: `docs/SCORING.md`.
@@ -33,7 +35,7 @@
 | 2 | Quy chế đào tạo đại học | https://ctt.hust.edu.vn/.../QCDT_2025_5445_QD-DHBK.pdf | 2026-08-03 | ~5000 | audience: faculty, department: academic-affairs |
 | 3 | Quy định học bổng | https://husteduvn-my.sharepoint.com/.../ESCBPVQlzNFOlglsvRwxAZYBqxdZc6QR_f9Y2TuGC2IiSA?e=Pszv9k | 2026-08-03 | ~4200 | audience: student, department: student-affairs |
 | 4 | Quy định ngoại ngữ từ K70 | https://ctt.hust.edu.vn/.../06_%20Quy%20%C4%91%E1%BB%8Bnh%20ngo%E1%BA%A1i%20ng%E1%BB%AF%20t%E1%BB%AB%20K70_ch%C3%ADnh%20quy_final.pdf | 2026-08-03 | ~3000 | audience: student, department: academic-affairs |
-| 5 | Chính sách hỗ trợ sinh viên khuyết tật | https://husteduvn-my.sharepoint.com/.../Q%C4%90%20Ban%20h%C3%A0nh... | 2026-08-03 | ~2500 | audience: student, department: student-affairs |
+| 5 | Chính sách hỗ trợ sinh viên khuyết tật | https://drive.google.com/file/d/1oALudWB-XEWPjGe6ynKZ2Zi-SldikVSt/view?usp=sharing | 2026-08-03 | ~2500 | audience: student, department: student-affairs |
 
 **Danh sách kiểm tra quản trị dữ liệu (Data governance checklist):**
 - [x] Tập tài liệu (Corpus) chỉ chứa nguồn công khai/được phép dùng và không chứa dữ liệu cá nhân, thông tin đăng nhập hoặc tài liệu nội bộ.
@@ -66,7 +68,7 @@
 - **Mô tả & lý do chọn:** Văn bản quy định thường có câu dài chứa nhiều điều kiện. Cắt theo câu giúp trọn vẹn ý nghĩa ngữ pháp của điều khoản.
 - **Code snippet:** regex `[^.!?]+[.!?]*` tách theo câu.
 
-**Thành viên 2 — Nguyễn Tiến Thanh**
+**Thành viên 2 — Nguyễn Tiến Thành**
 - **Loại chiến lược:** HeadingChunker (max_chars=900, overlap=120)
 - **Mô tả & lý do chọn:** Quy định Bách Khoa thường cấu trúc chặt chẽ theo từng Điều, Mục. Việc tách bằng regex dựa trên Heading Markdown đảm bảo một đoạn điều khoản không bao giờ bị xé lẻ.
 - **Code snippet:** Tùy biến `HeadingChunker` cắt theo tiêu đề markdown `##`.
