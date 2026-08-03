@@ -4,7 +4,7 @@ title: Chính sách hỗ trợ sinh viên khuyết tật
 audience: student
 department: student-affairs
 language: vi
-source_url: https://husteduvn-my.sharepoint.com/...
+source_url: https://drive.google.com/file/d/1oALudWB-XEWPjGe6ynKZ2Zi-SldikVSt/view?usp=sharing
 retrieved_at: 2026-08-03
 document_version: "2026"
 ---

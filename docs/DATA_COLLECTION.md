@@ -87,8 +87,8 @@ library-renewal-policy,data/chinh-sach-thu-vien/gia-han-the.md,Quy định gia h
 
 ## 6. Checklist trước benchmark
 
-- [ ] Có 5–10 file cùng một chủ đề, `doc_id` không trùng.
-- [ ] Mỗi file có đủ metadata bắt buộc; `sources.csv` khớp một-một với file.
-- [ ] URL là nguồn gốc, truy cập được, và dữ liệu không nhạy cảm.
-- [ ] Có metadata đủ để dùng `search_with_filter()`.
-- [ ] Cả 5 benchmark queries đều kiểm chứng được từ corpus.
+- [x] Có 5–10 file cùng một chủ đề, `doc_id` không trùng.
+- [x] Mỗi file có đủ metadata bắt buộc; `sources.csv` khớp một-một với file.
+- [x] URL là nguồn gốc, truy cập được, và dữ liệu không nhạy cảm.
+- [x] Có metadata đủ để dùng `search_with_filter()`.
+- [x] Cả 5 benchmark queries đều kiểm chứng được từ corpus.
