@@ -17,8 +17,25 @@ class KnowledgeBaseAgent:
         self.store = store
         self.llm_fn = llm_fn
 
-    def answer(self, question: str, top_k: int = 3) -> str:
-        results = self.store.search(question, top_k=top_k)
-        context = "\n".join([f"- {r['content']}" for r in results])
-        prompt = f"Context:\n{context}\n\nQuestion: {question}\nAnswer:"
+    def answer(self, question: str, top_k: int = 3, metadata_filter: dict = None) -> str:
+        if metadata_filter:
+            results = self.store.search_with_filter(question, top_k=top_k, metadata_filter=metadata_filter)
+        else:
+            results = self.store.search(question, top_k=top_k)
+        if not results:
+            return "Không tìm thấy thông tin liên quan trong cơ sở dữ liệu."
+            
+        context_parts = []
+        for i, r in enumerate(results, 1):
+            source = r.get("metadata", {}).get("doc_id", "unknown")
+            context_parts.append(f"[{i}] Nguồn: {source}\n{r['content']}")
+            
+        context = "\n\n".join(context_parts)
+        
+        prompt = (
+            "Instruction: chỉ dùng context; nói rõ khi context không đủ.\n"
+            f"Context:\n{context}\n\n"
+            f"Question: {question}\n"
+            "Answer:"
+        )
         return self.llm_fn(prompt)

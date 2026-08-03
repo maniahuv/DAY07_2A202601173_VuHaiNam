@@ -19,7 +19,7 @@ from src.embeddings import (
 
 # Thư mục dữ liệu mặc định cho demo = bộ khởi động cố định của lớp K3.
 # Đổi bằng biến môi trường: LAB_DATA_DIR=data/<thu-muc-cua-nhom> python3 main.py
-DEFAULT_DATA_DIR = "data/k3_university"
+DEFAULT_DATA_DIR = "data/k3_hust"
 
 
 def _select_embedder():
@@ -68,9 +68,13 @@ def run_manual_demo(question: str | None = None, data_dir: str | None = None) ->
             "Ở Giai đoạn 2, đặt EMBEDDING_PROVIDER=local để so sánh retrieval có ý nghĩa."
         )
 
+    # Sử dụng SentenceChunker cho task này
+    from src.chunking import SentenceChunker
+    chunker = SentenceChunker(max_sentences_per_chunk=3)
+    
     # Pipeline cung cấp sẵn: parse front matter -> chunk -> gắn metadata -> nạp store.
-    store = build_knowledge_base(data_dir, embedding_fn=embedder)
-    print(f"Đã nạp {store.get_collection_size()} chunk vào EmbeddingStore")
+    store = build_knowledge_base(data_dir, embedding_fn=embedder, chunker=chunker)
+    print(f"Đã nạp {store.get_collection_size()} chunk vào EmbeddingStore bằng SentenceChunker")
 
     print("\n=== Tìm kiếm (EmbeddingStore.search) ===")
     print(f"Câu hỏi: {query}")

@@ -38,10 +38,16 @@ class EmbeddingStore:
             self._collection = None
 
     def _make_record(self, doc: Document) -> dict[str, Any]:
+        record_id = f"{doc.id}_{self._next_index}"
+        meta = dict(doc.metadata)
+        if "doc_id" not in meta:
+            meta["doc_id"] = doc.id
+            
         return {
-            "id": doc.id,
+            "id": record_id,
             "content": doc.content,
-            "metadata": doc.metadata
+            "metadata": meta,
+            "embedding": self._embedding_fn(doc.content)
         }
 
     def _search_records(self, query: str, records: list[dict[str, Any]], top_k: int) -> list[dict[str, Any]]:
@@ -73,8 +79,8 @@ class EmbeddingStore:
         else:
             for d in docs:
                 record = self._make_record(d)
-                record["embedding"] = self._embedding_fn(d.content)
                 self._store.append(record)
+                self._next_index += 1
 
     def search(self, query: str, top_k: int = 5) -> list[dict[str, Any]]:
         """
