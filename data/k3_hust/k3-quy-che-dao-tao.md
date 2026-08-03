@@ -1,7 +1,7 @@
 ---
 doc_id: k3-quy-che-dao-tao
 title: Quy chế đào tạo đại học
-audience: student
+audience: faculty
 department: academic-affairs
 language: vi
 source_url: https://ctt.hust.edu.vn/Upload/Nguy%E1%BB%85n%20Qu%E1%BB%91c%20%C4%90%E1%BA%A1t/files/DTDH_QDQC/Hoctap/QCDT_2025_5445_QD-DHBK.pdf
